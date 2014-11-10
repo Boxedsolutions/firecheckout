@@ -59,10 +59,10 @@
                 <totals>
                     <fee>
                         <class>billmateinvoice/sales_quote_address_total_fee</class>
-                        <!-- <after>subtotal,discount,shipping</after>
-                        <before>tax,grand_total</before> -->
-						<before>shipping</before>
-						<after>tax</after>
+                        <after>subtotal,discount,shipping</after>
+                        <before>tax,grand_total</before>
+						<!-- <before>shipping</before>
+						<after>tax</after> -->
                     </fee>
 					<billmate_tax>
                         <class>billmateinvoice/quote_taxTotal</class>
