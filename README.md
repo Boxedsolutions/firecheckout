@@ -11,7 +11,7 @@ insert following code in billing.phtml and this file can found under
 app\design\frontend\default\hultens\template\firecheckout\checkout or app\design\frontend\default\default\template\firecheckout\checkout )
 
 
-$fields['person_number'] => array(
+$fields['person_number'] = array(
            'class'  => 'input-text',
            'label'  => 'Person Number',
            'status' => 'required'
