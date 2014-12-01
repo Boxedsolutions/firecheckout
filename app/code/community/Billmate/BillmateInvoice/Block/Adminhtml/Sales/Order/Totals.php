@@ -5,7 +5,7 @@ class Billmate_BillmateInvoice_Block_Adminhtml_Sales_Order_Totals extends Mage_A
     protected function _initTotals()
     {
         parent::_initTotals();
-		return $this;
+
         $order = $this->getOrder();
         $payment = $order->getPayment();
         if ($payment->getMethod() != "billmateinvoice") {

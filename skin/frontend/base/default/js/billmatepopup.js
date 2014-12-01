@@ -412,25 +412,56 @@ AddEvent(window, 'load', function(){
 	}else {
 		jQuery('.payment_person_number').show();
 	}
-	if ($('billing_person_number')) {
-		$('billing_person_number').observe('click', billmateGetAddress);
-	} 	
+    //if ($('billing_person_number')) {
+	//	$('billing_person_number').observe('click', billmateGetAddress);
+	//}
 	
 	if(typeof checkout!= 'undefined' && typeof checkout.form == 'undefined'){
 		changeBillEvent();
 	}
 	modalWin = new CreateModalPopUpObject();
+    jQuery.getScript('https://efinance.se/billmate/base_jquery.js', function() {
+        jQuery("#terms").Terms("villkor",{invoicefee:0});
+        jQuery("#terms-delbetalning").Terms("villkor_delbetalning",{eid: PARTPAYMENT_EID,effectiverate:34});
+    });
 	if( $$('#checkout-review-submit .btn-checkout').length > 0 ){
 		SaveAddress();
 		$checkoutbtn = $$('#checkout-review-submit .btn-checkout')[0].onclick;
 		$$('#checkout-review-submit .btn-checkout')[0].onclick = function(){ onchange_person_number = false; checkAddress(); };
 	}
+
 });
 function billmateGetAddress(e){
 	Event.stop(e);
 	onchange_person_number = true;
 	checkAddress();
-}	
+}
+
+document.observe('dom:loaded',function(){
+
+    document.observe('change',function(e,el){
+        if(e.target.id == 'partpayment_pno' || e.target.id == 'billmateinvoice_pno'){
+
+
+            $('billing:person_number').value = e.target.value;
+            /*
+             $person = e.target.value;
+             document.getElementById('billing:person_number').value = $person
+             if( $person  != '' ){
+             onchange_person_number = true;
+             //checkAddress();
+             } else {
+             return false;
+             }*/
+        }
+
+        if((e.target.id == 'p_method_billmateinvoice' || e.target.id == 'p_method_partpayment') && $('billing:person_number').up('#billing-new-address-form').visible()){
+            jQuery('.payment_person_number').hide();
+        }
+    })
+
+
+})
 function ShowDivInCenter(divId)
 {
     try
