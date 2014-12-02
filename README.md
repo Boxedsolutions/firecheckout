@@ -14,7 +14,7 @@ app\design\frontend\default\hultens\template\firecheckout\checkout or app\design
 $fields['person_number'] = array(
            'class'  => 'input-text',
            'label'  => 'Person Number',
-           'status' => 'required'
+           'status' => 'optional'
        );
 
 after 
