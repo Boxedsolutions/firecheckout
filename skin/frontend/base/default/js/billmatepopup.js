@@ -406,15 +406,11 @@ AddEvent(window, 'load', function(){
 		AddEvent(document.getElementById("billing:person_number"),'change', function(){
 			$person = document.getElementById("billing:person_number").value.trim();
 			if( $person  == '' ) return false;
-			onchange_person_number = true;
-			checkAddress();
 		})
 	}else {
 		jQuery('.payment_person_number').show();
 	}
-    //if ($('billing_person_number')) {
-	//	$('billing_person_number').observe('click', billmateGetAddress);
-	//}
+
 	
 	if(typeof checkout!= 'undefined' && typeof checkout.form == 'undefined'){
 		changeBillEvent();
@@ -444,15 +440,7 @@ document.observe('dom:loaded',function(){
 
 
             $('billing:person_number').value = e.target.value;
-            /*
-             $person = e.target.value;
-             document.getElementById('billing:person_number').value = $person
-             if( $person  != '' ){
-             onchange_person_number = true;
-             //checkAddress();
-             } else {
-             return false;
-             }*/
+
         }
 
         if((e.target.id == 'p_method_billmateinvoice' || e.target.id == 'p_method_partpayment') && $('billing:person_number').up('#billing-new-address-form').visible()){
