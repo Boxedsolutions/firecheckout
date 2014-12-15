@@ -11,6 +11,7 @@ $customerData['email'] = Mage::getSingleton('checkout/session')
 
  ?>
 
+<script type="text/javascript" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN,true).'js/billmatepopup.js?version=1.19';?>"></script>
 <ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
     <li>
         <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>/billmate/images/bm_faktura_l.png" />
@@ -31,4 +32,5 @@ $customerData['email'] = Mage::getSingleton('checkout/session')
 var billmateindexurl = "<?php echo Mage::getUrl('billmateinvoice/index') ?>";
 var billmatesaveurl  = '<?php echo Mage::getUrl('billmateinvoice/index/updateAddress');?>';
 var skinurl = '<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) ?>';
+var PARTPAYMENT_EID = '<?php echo Mage::getStoreConfig('payment/partpayment/eid'); ?>';
 </script>
